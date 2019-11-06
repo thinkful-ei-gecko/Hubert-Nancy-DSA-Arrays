@@ -16,15 +16,17 @@ class myArray {
     }
     memory.copy(this.ptr, oldPtr, this.length);
     memory.free(oldPtr);
+    this._capacity = size;
   }
 
   push(value) {
     if (this.length >= this._capacity) {
-      this._resize((this.length + 1) * myArray.SIZE_RATIO)
+      this._resize((this.length + 1) * myArray.SIZE_RATIO);
     }
     memory.set(this.ptr + this.length, value);
     this.length++
   }
 }
+myArray.SIZE_RATIO = 3;
 
 module.exports = myArray;
