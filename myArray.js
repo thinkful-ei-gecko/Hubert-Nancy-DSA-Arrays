@@ -26,6 +26,34 @@ class myArray {
     memory.set(this.ptr + this.length, value);
     this.length++
   }
+
+  pop(){
+    if(!this.length) {
+      throw new Error('no data')
+    }
+    //console.log('memory.get',this.ptr + this.length -1)
+    const value = memory.get(this.ptr + this.length -1) //getting the value in memory block
+    console.log('value', value)
+    this.length--;
+    return value;
+  }
+
+  remove(index){ //1
+    if(index >= this.length || index < 0) {
+      throw new Error('index is wrong')
+    }
+    console.log('to, from, length:', this.ptr + index, this.ptr + index + 1, this.length - index - 1)
+    memory.copy(this.ptr + index, this.ptr + index + 1, this.length - index - 1)
+    this.length--
+  }
+  
+  get(index) {
+
+    let value = memory.get(this.ptr + index)
+    console.log('first value in array',value)
+    return value;
+  }
+
 }
 myArray.SIZE_RATIO = 3;
 
