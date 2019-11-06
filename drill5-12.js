@@ -47,4 +47,66 @@ function merge(arr1, arr2) {
     return jointArr.sort((a,b) => a-b)
 }
 
-console.log(merge([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]))
+//console.log(merge([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]))
+
+
+function removeCharacters(str, char) {
+    let regExp = new RegExp(`[${char}]`, 'gi')
+    let newStr =  str.replace(regExp, '')
+    return newStr;
+}
+
+//console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+
+function products(arr) {
+    let result = [];
+    let product = 1;
+    for(let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            product *= arr[j]
+        }
+        result.push(product/arr[i])
+        product = 1;
+    }
+    return result;
+}
+//console.log(products([1, 3, 9, 4]))
+
+function twoArray(arr) {
+
+    let result = []
+    // let isZero = null
+
+    const columns = [1 , 3 , 4] //j
+    const rows = [0, 2] //i
+    for(let i=0; i < arr.length; i++){
+
+        for (let j=0; j < arr[i].length; j++){
+            if(arr[i][j] === 0) {
+                columns.push(j)
+                rows.push(i)
+            }
+
+            // columns = [1, 3]
+            // if (j === 1 ) {
+            //     arr[i][j] = 0
+            // }
+
+            if(columns.includes(j)){
+                arr[i][j] = 0
+            }
+            if(rows.includes(i)) {
+                arr[i][j] = 0
+            }
+        }
+    }
+    return arr
+}
+
+let arr = [[1,0,1,1,0],
+[0,1,1,1,0],
+[1,1,1,1,1],
+[1,0,1,1,1],
+[1,1,1,1,1]];
+
+console.log(twoArray(arr))
