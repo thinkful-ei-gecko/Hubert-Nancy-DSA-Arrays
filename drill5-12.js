@@ -73,9 +73,7 @@ function products(arr) {
 //console.log(products([1, 3, 9, 4]))
 
 function twoArray(arr) {
-
     let result = []
-    // let isZero = null
 
     const columns = [1 , 3 , 4] //j
     const rows = [0, 2] //i
@@ -86,11 +84,6 @@ function twoArray(arr) {
                 columns.push(j)
                 rows.push(i)
             }
-
-            // columns = [1, 3]
-            // if (j === 1 ) {
-            //     arr[i][j] = 0
-            // }
 
             if(columns.includes(j)){
                 arr[i][j] = 0
@@ -110,3 +103,8 @@ let arr = [[1,0,1,1,0],
 [1,1,1,1,1]];
 
 console.log(twoArray(arr))
+
+function strRotation(string1, string2){
+    return (string2 + string2).indexOf(string1) != -1;
+
+}
